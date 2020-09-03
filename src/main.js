@@ -29,7 +29,7 @@ $(document).ready(function()
             {
                 for(let i =0; i<response.Search.length;i++)
                 {
-                    $(".showInfo").append(`${response.Search[i].Title}`);
+                    $(".showInfo").append(`<ul> <img src="${response.Search[i].Poster} width="150" height="150"> ${response.Search[i].Title} </ul> <hr>`);
                 }
             }
         }
