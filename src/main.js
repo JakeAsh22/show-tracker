@@ -12,6 +12,7 @@ $(document).ready(function()
         $(".showCard").hide();
         $(".showCard").show();
         let showName = $("#showSearch").val();
+        console.log(showName);
 
         (async () => { 
             let newShowSearch = new Show();
@@ -20,10 +21,14 @@ $(document).ready(function()
         })();
 
         const getElements = function(response) {
-            console.log(response.Search);
+            console.log(response.Response);
             if (showName=='') 
             {
                 $(".showInfo").text("Please enter show/movie title.");
+            }
+            else if (response.Response==='False') 
+            {
+                $(".showInfo").text("Too many results.  Please enter more information.");
             }
             else
             {
