@@ -9,7 +9,7 @@
                 <h1>Show Tracker</h1>
             </div>
             <div>
-                <form id="tvShowSearch">
+                <form id="tvShowSearch" onkeydown="return event.key != 'Enter';">
                     <label for="showSearch"> Please enter show title: </label><br>
                     <input type="text" id="showSearch">
                     <button type="button" id="searchButton" class="btn btn-success">Search</button>
@@ -19,7 +19,8 @@
                 <div class="col-md-12">
                     <div class="card showCard">
                         <div class="card-header">
-                            <h3>Show </h3>
+                            <h3>Results </h3>
+                            <button type="button" id="toggleResults" class="btn btn-info sm"> Toggle View</button>
                         </div>
                         <div class="card-body">
                             

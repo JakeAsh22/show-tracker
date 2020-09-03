@@ -6,11 +6,13 @@ import { Show } from './show.js';
 
 $(document).ready(function()
 {
+    $("#toggleResults").hide();
     $("#searchButton").click(function()
     {
         $(".showInfo").text("");
         $(".showCard").hide();
         $(".showCard").show();
+        $("#toggleResults").show();
         let showName = $("#showSearch").val();
         console.log(showName);
 
@@ -37,6 +39,12 @@ $(document).ready(function()
                     $(".showInfo").append(`<ul> <img src="${response.Search[i].Poster} width="150" height="150"> ${response.Search[i].Title} </ul> <hr>`);
                 }
             }
-        }
+        };
     });
+
+    $("#toggleResults").click(function()
+    {
+        $(".showInfo").toggle();
+    });
+
 });
