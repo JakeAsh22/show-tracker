@@ -6,13 +6,32 @@ import { Show } from './show.js';
 
 $(document).ready(function()
 {
-    $("$searchButton").click(function()
+    $("#searchButton").click(function()
     {
-        $("showStuff").text("");
-        $("showCard").hide();
-        $("showCard").show();
+        $(".showInfo").text("");
+        $(".showCard").hide();
+        $(".showCard").show();
         let showName = $("#showSearch").val();
-        let newShow = "";
-        console.log(showName + " " + newShow);
+
+        (async () => { 
+            let newShowSearch = new Show();
+            const response = await newShowSearch.getShowByName(showName);
+            getElements(response);
+        })();
+
+        const getElements = function(response) {
+            console.log(response.Search);
+            if (showName=='') 
+            {
+                $(".showInfo").text("Please enter show/movie title.");
+            }
+            else
+            {
+                for(let i =0; i<response.Search.length;i++)
+                {
+                    $(".showInfo").append(`${response.Search[i].Title}`);
+                }
+            }
+        }
     });
 });
